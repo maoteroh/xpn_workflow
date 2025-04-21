@@ -1,0 +1,17 @@
+#!/bin/bash
+
+job_id_Task2=$(sbatch validar_ppms_xpn.sh | awk '{print $4}')
+job_id_Task1=$(sbatch validar_pgms_xpn.sh | awk '{print $4}')
+job_id_Task3=$(sbatch --dependency=afterok:$job_id_Task2:$job_id_Task1 c_task_wf_3_xpn.sh | awk '{print $4}')
+job_id_Task2=$(sbatch validar_ppms_xpn.sh | awk '{print $4}')
+job_id_Task1=$(sbatch validar_pgms_xpn.sh | awk '{print $4}')
+job_id_Task3=$(sbatch --dependency=afterok:$job_id_Task2:$job_id_Task1 c_task_wf_3_xpn.sh | awk '{print $4}')
+job_id_Task2=$(sbatch validar_ppms_xpn.sh | awk '{print $4}')
+job_id_Task1=$(sbatch validar_pgms_xpn.sh | awk '{print $4}')
+job_id_Task3=$(sbatch --dependency=afterok:$job_id_Task2:$job_id_Task1 c_task_wf_3_xpn.sh | awk '{print $4}')
+job_id_Task1=$(sbatch validar_pgms_xpn.sh | awk '{print $4}')
+job_id_Task2=$(sbatch validar_ppms_xpn.sh | awk '{print $4}')
+job_id_Task3=$(sbatch --dependency=afterok:$job_id_Task1:$job_id_Task2 c_task_wf_3_xpn.sh | awk '{print $4}')
+job_id_Task1=$(sbatch validar_pgms_xpn.sh | awk '{print $4}')
+job_id_Task2=$(sbatch validar_ppms_xpn.sh | awk '{print $4}')
+job_id_Task3=$(sbatch --dependency=afterok:$job_id_Task1:$job_id_Task2 c_task_wf_3_xpn.sh | awk '{print $4}')
